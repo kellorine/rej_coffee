@@ -1,0 +1,375 @@
+.coffee-shop-app {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  background: linear-gradient(to right, #3c2a21, #1a120b) !important;
+}
+
+.banner {
+  height: 400px;
+  background: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1600') center/cover;
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  text-align: center;
+}
+
+/* Introduction Cards */
+.intro-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.intro-card:hover {
+  transform: translateY(-5px);
+}
+
+.intro-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.about-section {
+  background: white;
+  padding: 4rem 0;
+  margin-bottom: 3rem;
+}
+
+.about-section .section-title::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.about-image {
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  height: auto;
+}
+
+/* Menu Section Styles */
+.menu-section-container {
+  padding: 1rem;
+}
+
+.menu-item {
+  height: 100%;
+  transition: transform 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item:hover {
+  transform: translateY(-5px);
+}
+
+.cart-section {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 20px;
+}
+
+.badge {
+  text-transform: capitalize;
+}
+
+.order-history .card {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  position: relative;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: #3c2a21;
+}
+
+.category-buttons {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.category-button {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.category-button.active {
+  background-color: #3c2a21;
+  border-color: #3c2a21;
+}
+
+.footer {
+  margin-top: auto;
+  background: linear-gradient(to right, #3c2a21, #1a120b);
+  color: white;
+  padding: 2rem 0;
+}
+
+.social-links a {
+  color: white;
+  margin: 0 10px;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #d4a574;
+}
+
+.main-content {
+  flex: 1;
+  padding-bottom: 3rem;
+}
+
+/* Responsive Cart Styles */
+@media (max-width: 991px) {
+  .cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1040;
+    display: none;
+  }
+
+  .cart-overlay.show {
+    display: block;
+  }
+
+  .cart-section {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    bottom: 0;
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    z-index: 1050;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    padding-bottom: 100px;
+  }
+
+  .cart-section.show {
+    right: 0;
+  }
+
+  .cart-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  .category-buttons {
+    padding: 0 1rem;
+  }
+
+  .category-button {
+    margin: 0.5rem;
+    flex: 1;
+    min-width: 120px;
+    max-width: 200px;
+  }
+
+  .cart-toggle {
+    transform: rotate(90deg) !important;
+  }
+
+  .cart-toggle.active {
+    transform: rotate(-90deg) !important;
+  }
+
+  .menu-section-container {
+    padding: 0;
+  }
+}
+
+/* Mobile Specific Styles */
+@media (max-width: 576px) {
+  .category-button {
+    font-size: 0.9rem;
+    padding: 0.75rem 1.5rem;
+  }
+
+  .intro-card {
+    padding: 1.5rem;
+  }
+
+  .intro-image {
+    height: 150px;
+  }
+}
+
+.cart-toggle {
+  transition: transform 0.3s ease;
+  transform: rotate(0deg);
+}
+
+.cart-toggle.active {
+  transform: rotate(180deg);
+}
+
+/* Empty cart styles */
+.cart-close {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  color: #6c757d;
+}
+
+.cart-close:hover {
+  color: #dc3545;
+}
+
+.top-2 {
+  top: 0.5rem;
+}
+
+.end-2 {
+  right: 0.5rem;
+}
+
+
+@media (max-width: 329px) {
+  .navbar .d-flex {
+    width: 100%;
+    justify-content: center;
+  }
+}
+@media (max-width: 329px) {
+  .navbar .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+
+.about-image {
+  width: 100%;
+  height: 450px; /* Adjust to make it bigger */
+  object-fit: cover; /* Ensures it fills the area properly */
+}
+.about-section p {
+  text-align: justify;
+}
+
+
+@media (max-width: 768px) {
+  .intro-card {
+    width: 100%;
+    text-align: center;
+  }
+
+  .intro-card img {
+    display: block;
+    margin: 0 auto;
+    width: 100%; /* Ensures it fills the container */
+    max-width: 3000px; /* Controls max width */
+    height: 180px; /* Fixed height for credit card shape */
+    object-fit: cover; /* Ensures the image fills the box completely */
+    border-radius: 10px; /* Optional: Smooth edges for a card look */
+  }
+
+  /* Make each column take full width */
+  .row .col-md-4 {
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 820px) {
+  .intro-card {
+    width: 100%;
+    text-align: center;
+  }
+
+  .intro-card img {
+    display: block;
+    margin: 0 auto;
+    width: 100%; /* Ensures it fills the container */
+    max-width: 3000px; /* Controls max width */
+    height: 180px; /* Fixed height for credit card shape */
+    object-fit: cover; /* Ensures the image fills the box completely */
+    border-radius: 10px; /* Optional: Smooth edges for a card look */
+  }
+
+  /* Make each column take full width */
+  .row .col-md-4 {
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .intro-card {
+    width: 100%;
+    text-align: center;
+  }
+
+  .intro-card img {
+    display: block;
+    margin: 0 auto;
+    width: 100%; /* Ensures it fills the container */
+    max-width: 3000px; /* Controls max width */
+    height: 180px; /* Fixed height for credit card shape */
+    object-fit: cover; /* Ensures the image fills the box completely */
+    border-radius: 10px; /* Optional: Smooth edges for a card look */
+  }
+
+  /* Make each column take full width */
+  .row .col-md-4 {
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+
+
+
+
