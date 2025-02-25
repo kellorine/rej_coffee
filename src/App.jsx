@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -15,13 +15,9 @@ function App() {
           position="top-right"
           toastOptions={{
             duration: 900,
-            style: {
-              background: '#363636',
-              color: '#fff',
-            },
+            style: { background: '#363636', color: '#fff' },
           }}
         />
-        
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/menu" element={<MenuPage />} />
